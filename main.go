@@ -1,6 +1,8 @@
 package main
 
 import (
+	"database/sql"
+	"log"
 	"net/http"
 )
 
@@ -13,5 +15,8 @@ func main() {
 }
 
 func listUserHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("List User"))
+	db, err = sql.Open("sqlite3", "users.db")
+	if err != nil {
+		log.Fatal(err)
+	}
 }
